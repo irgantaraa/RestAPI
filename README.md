@@ -76,7 +76,7 @@ The test results will be displayed in the console, indicating the total number o
 ```
 ===============================================
 Default Suite
-Total tests run: 5, Passes: 5, Failures: 0, Skips: 0
+Total tests run: 8, Passes: 8, Failures: 0, Skips: 0
 ===============================================
 ```
 
