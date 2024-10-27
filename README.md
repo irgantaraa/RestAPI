@@ -11,13 +11,14 @@ This project is focused on testing the API endpoints of The Movie Database (TMDB
    - **Description:** Retrieves a list of movies currently playing in theaters.
    - **Tests:**
      - Valid request to check for status code 200.
-     - Invalid page number request to check for status code 404.
+     - Invalid page number request to check for status code 400.
 
 2. **Get Popular Movies**
    - **Endpoint:** `/movie/popular`
    - **Description:** Retrieves a list of popular movies.
    - **Tests:**
      - Valid request to check for status code 200.
+     - Invalid page number request to check for status code 400.
 
 3. **Get Movie Details**
    - **Endpoint:** `/movie/{movie_id}`
@@ -31,6 +32,7 @@ This project is focused on testing the API endpoints of The Movie Database (TMDB
    - **Description:** Submits a rating for a specific movie.
    - **Tests:**
      - Valid request to check for status codes 200 and 201 based on the operation.
+     - Invalid page number request to check for status code 400.
 
 ## Testing Framework
 
