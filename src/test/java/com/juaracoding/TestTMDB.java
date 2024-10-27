@@ -19,7 +19,7 @@
             RestAssured.baseURI = "https://api.themoviedb.org/3";
         }
 
-        @Test
+        @Test(priority = 1)
         public void testGetMovieNowPlaying() {
             RequestSpecification request = RestAssured.given();
             request.queryParam("language", "en-US");
@@ -44,11 +44,10 @@
             for (String title : movieTitles) {
                 System.out.println(title);
             }
-
             Assert.assertEquals(page, 1, "Page number is not as expected.");
             Assert.assertFalse(movieTitles.isEmpty(), "Movie list should not be empty.");
         }
-        @Test
+        @Test(priority = 2)
         public void testGetMovieNowPlayingNegative(){
             RequestSpecification request = RestAssured.given();
             request.queryParam("language", "en-US");
@@ -67,7 +66,7 @@
         }
 
 
-        @Test
+        @Test(priority = 3)
         public void testGetMoviePopular() {
             RequestSpecification request = RestAssured.given();
             request.queryParam("language", "en-US");
@@ -91,7 +90,7 @@
             }
         }
 
-        @Test
+        @Test(priority = 4)
         public void testGetMoviePopularNegative() {
             RequestSpecification request = RestAssured.given();
             request.queryParam("language", "en-US");
@@ -108,7 +107,7 @@
             Assert.assertEquals(response.statusCode(), 400);
         }
 
-        @Test
+        @Test(priority = 5)
         public void testPostMovieRating() {
             String movieId = "1184918"; // ID film yang valid
             double rating = 8.5; //  nilai rating yang diinginkan
@@ -141,7 +140,7 @@
             String responseMessage = "The item/record was updated successfully.";
             Assert.assertEquals(message, responseMessage);
         }
-        @Test
+        @Test(priority = 6)
         public void testPostMovieRatingNegative() {
             String movieId = "118491821"; // ID film yang valid
             double rating = 99.0; //  nilai rating yang diinginkan
@@ -166,7 +165,7 @@
             Assert.assertTrue(statusCode == 400);
         }
 
-        @Test
+        @Test(priority = 7)
         public void testGetMovieDetails() {
             String movieId = "1184918"; // Ganti dengan ID film yang valid
 
@@ -206,7 +205,7 @@
             System.out.println("Vote Count: " + voteCount);
         }
 
-        @Test
+        @Test(priority = 8)
         public void testGetMovieDetailsNegative() {
             String invalidMovieId = "9999999"; // ID film yang tidak valid
 
@@ -221,7 +220,6 @@
             System.out.println("Test: Get Movie Details Negative");
             System.out.println("===================================");
 
-            // Memeriksa apakah status code respons adalah 404 Not Found
             Assert.assertEquals(response.statusCode(), 404, "Status code tidak sesuai. Diharapkan 404 Not Found.");
 
             String message = response.jsonPath().getString("status_message");
