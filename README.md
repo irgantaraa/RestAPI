@@ -20,19 +20,19 @@ This project is focused on testing the API endpoints of The Movie Database (TMDB
      - Valid request to check for status code 200.
      - Invalid page number request to check for status code 400.
 
-3. **Get Movie Details**
-   - **Endpoint:** `/movie/{movie_id}`
-   - **Description:** Retrieves detailed information about a specific movie.
-   - **Tests:**
-     - Valid request for an existing movie ID to check for status code 200 and validate the response data.
-     - Invalid request for a non-existing movie ID to check for status code 404.
-
-4. **Post Movie Rating**
+3.  **Post Movie Rating**
    - **Endpoint:** `/movie/{movie_id}/rating`
    - **Description:** Submits a rating for a specific movie.
    - **Tests:**
      - Valid request to check for status codes 200 and 201 based on the operation.
      - Invalid page number request to check for status code 400.
+
+4.**Get Movie Details**
+   - **Endpoint:** `/movie/{movie_id}`
+   - **Description:** Retrieves detailed information about a specific movie.
+   - **Tests:**
+     - Valid request for an existing movie ID to check for status code 200 and validate the response data.
+     - Invalid request for a non-existing movie ID to check for status code 404.
 
 ## Testing Framework
 
